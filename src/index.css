@@ -31,7 +31,13 @@ main {
 	font-family: "Inter", sans-serif;
 	font-weight: 400;
 	margin-top: 0;
+	margin-bottom: 0;
 	text-align: center;
+}
+
+.counter {
+	font-size: 40px;
+	margin: 10px auto;
 }
 
 .dice-container {

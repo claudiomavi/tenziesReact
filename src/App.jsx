@@ -6,12 +6,7 @@ import { nanoid } from "nanoid";
 export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
 	const [tenzies, setTenzies] = React.useState(false);
-
-	// TRACK THE NUMBER OF ROLLS
-	// crear la parte visual del contador
-	// crear un contador básico que se activa cuando se pulsa el botón
-	// crear una función para reset del contador cuando se acaba el juego (tenzies === true)
-	// ...
+	const [counter, setCounter] = React.useState(0);
 
 	React.useEffect(() => {
 		const allHeld = dice.every((die) => die.isHeld);
@@ -59,6 +54,14 @@ export default function App() {
 		);
 	}
 
+	function diceCounter() {
+		if (!tenzies) {
+			setCounter((prevState) => prevState + 1);
+		} else {
+			setCounter(0);
+		}
+	}
+
 	const diceElements = dice.map((die) => (
 		<Die
 			key={die.id}
@@ -77,8 +80,14 @@ export default function App() {
 				Roll until all dice are the same. Click each die to freeze it at its
 				current value between rolls.
 			</p>
+			<h1 className="counter">{counter}</h1>
 			<div className="dice-container">{diceElements}</div>
-			<button className="roll-dice" onClick={rollDice}>
+			<button
+				className="roll-dice"
+				onClick={() => {
+					rollDice();
+					diceCounter();
+				}}>
 				{tenzies ? "New Game" : "Roll"}
 			</button>
 		</main>
