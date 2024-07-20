@@ -4,7 +4,11 @@ export default function Die(props) {
 	};
 	return (
 		<div className="die-face" style={styles} onClick={props.holdDice}>
-			<h2 className="die-num">{props.value}</h2>
+			<img
+				className="die-num"
+				src={`/src/assets/dice/${props.value}.svg`}
+				alt="die"
+			/>
 		</div>
 	);
 }

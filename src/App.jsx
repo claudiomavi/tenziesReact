@@ -7,6 +7,12 @@ export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
 	const [tenzies, setTenzies] = React.useState(false);
 
+	// TRACK THE NUMBER OF ROLLS
+	// crear la parte visual del contador
+	// crear un contador básico que se activa cuando se pulsa el botón
+	// crear una función para reset del contador cuando se acaba el juego (tenzies === true)
+	// ...
+
 	React.useEffect(() => {
 		const allHeld = dice.every((die) => die.isHeld);
 		const firstValue = dice[0].value;
@@ -56,6 +62,7 @@ export default function App() {
 	const diceElements = dice.map((die) => (
 		<Die
 			key={die.id}
+			url={die.value}
 			value={die.value}
 			isHeld={die.isHeld}
 			holdDice={() => holdDice(die.id)}
