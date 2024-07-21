@@ -7,7 +7,7 @@ export default function App() {
 	const [dice, setDice] = React.useState(allNewDice());
 	const [tenzies, setTenzies] = React.useState(false);
 	const [counter, setCounter] = React.useState(0);
-	const [best, setBest] = React.useState(35);
+	const [best, setBest] = React.useState(350);
 
 	React.useEffect(() => {
 		const allHeld = dice.every((die) => die.isHeld);
@@ -66,6 +66,7 @@ export default function App() {
 	function bestGame() {
 		if (tenzies && best > counter) {
 			setBest(counter);
+			localStorage.setItem("bestGame", counter);
 		}
 	}
 
@@ -82,7 +83,7 @@ export default function App() {
 	return (
 		<main>
 			{tenzies && <Confetti />}
-			<p className="best">BEST: {best}</p>
+			<p className="best">BEST: {localStorage.getItem("bestGame")}</p>
 			<h1 className="title">Tenzies</h1>
 			<p className="instructions">
 				Roll until all dice are the same. Click each die to freeze it at its
