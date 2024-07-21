@@ -65,6 +65,8 @@ export default function App() {
 
 	if (tenzies && best > counter) {
 			setBest(counter);
+	} else {
+		best
 	}
 
 	function bestGame() {
