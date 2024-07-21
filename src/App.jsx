@@ -63,11 +63,12 @@ export default function App() {
 		}
 	}
 
-	function bestGame() {
-		if (tenzies && best > counter) {
+	if (tenzies && best > counter) {
 			setBest(counter);
-			localStorage.setItem("bestGame", best);
-		}
+	}
+
+	function bestGame() {
+		localStorage.setItem("bestGame", best);
 	}
 
 	const diceElements = dice.map((die) => (
