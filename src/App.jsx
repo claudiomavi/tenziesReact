@@ -66,7 +66,7 @@ export default function App() {
 	function bestGame() {
 		if (tenzies && best > counter) {
 			setBest(counter);
-			localStorage.setItem("bestGame", counter);
+			localStorage.setItem("bestGame", best);
 		}
 	}
 
