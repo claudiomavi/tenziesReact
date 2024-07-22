@@ -9,6 +9,8 @@ export default function App() {
 	const [counter, setCounter] = React.useState(0);
 	const [best, setBest] = React.useState(350);
 
+	localStorage.setItem("bestGame", best);
+
 	React.useEffect(() => {
 		const allHeld = dice.every((die) => die.isHeld);
 		const firstValue = dice[0].value;
@@ -17,6 +19,10 @@ export default function App() {
 			setTenzies(true);
 		}
 	}, [dice]);
+
+	React.useEffect(() => {
+		localStorage.getItem("bestGame");
+	}, []);
 
 	function generateNewDie() {
 		return {
