@@ -20,10 +20,6 @@ export default function App() {
 		}
 	}, [dice]);
 
-	React.useEffect(() => {
-		localStorage.getItem("bestGame");
-	}, []);
-
 	function generateNewDie() {
 		return {
 			value: Math.ceil(Math.random() * 6),
